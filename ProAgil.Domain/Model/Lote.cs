@@ -12,7 +12,7 @@ namespace ProAgil.Domain.Model
         public int quantidade { get; set; }
         public int EventoId { get; set; }
         
-        public Evento Evento { get; set; }
+        public Evento Evento { get; }
         
         
         
