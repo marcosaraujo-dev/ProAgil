@@ -1,13 +1,7 @@
-
 <!-- Toolbar -->
 <app-nav></app-nav>
 <main role="main">
-<div class="container mt-5 pt-3" role="banner">
-
-  <h1 class="">Bem Vindo ao {{title}}</h1>
-  <hr>
-  <app-eventos></app-eventos>
-</div>
+  <div class="container mt-5 pt-3" role="banner">
+    <router-outlet></router-outlet>
+  </div>
 </main>
-
-<router-outlet></router-outlet>

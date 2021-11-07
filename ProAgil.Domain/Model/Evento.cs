@@ -7,7 +7,7 @@ namespace ProAgil.Domain.Model
     {
         public int Id { get; set; }
         public string Local { get; set; } 
-        public DateTime DataEvento { get; set; }
+        public DateTime? DataEvento { get; set; }
         public string Tema { get; set; } 
         public int QtdPessoas { get; set; }        
         

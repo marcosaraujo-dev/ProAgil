@@ -7,14 +7,12 @@
 ![image](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 
 
-Branch : 05-AutoMapperDataAnnotations
+Branch : 06-DevFrontEndCriacaoRotasAlertas
 ### Foram realizadas as seguintes atividades:
 
-- [x] Criação de DTO's
-- [x] Ajustes Controller
-- [x] Utilização do AutoMapper
-- [x] Controle de Muito para Muitos no AutoMapper
-- [x] Controles DTO nos métodos post e put
-- [x] Data Annotations
-- [x] Ajustes APIController
+- [x] Utilização do pacote ngx Toastr 
+- [x] Criação de Alertas
+- [x] Configuração e criação de rotas
+- [x] Configuração do título dinâmico
+- [x] Ajuste na leitura do campo data do evento
 
