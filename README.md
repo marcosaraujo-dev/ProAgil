@@ -7,15 +7,14 @@
 ![image](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 
 
-Branch : 04-Dev-FronEndOrganizarprojeto-Forms
+Branch : 05-AutoMapperDataAnnotations
 ### Foram realizadas as seguintes atividades:
 
-- [x] Organização do projeto Angular
-- [x] Criação do Service Evento
-- [x] Criação Modal
-- [x] DropDown Menu (inicial)
-- [x] Utilização do pacote ngx-bootstrap
-- [x] Utilização de Reactive Forms
-- [x] Validação do formulário
-- [x] controles para incluir, alterar e deletar um evento 
+- [x] Criação de DTO's
+- [x] Ajustes Controller
+- [x] Utilização do AutoMapper
+- [x] Controle de Muito para Muitos no AutoMapper
+- [x] Controles DTO nos métodos post e put
+- [x] Data Annotations
+- [x] Ajustes APIController
 
