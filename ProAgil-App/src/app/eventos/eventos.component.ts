@@ -24,8 +24,11 @@ export class EventosComponent implements OnInit {
   mostrarImagem: boolean = false;
   registerForm: FormGroup | any;
   bodyDeletarEvento = '';
+  file: File | any;
 
-  _filtroLista: string = "";
+  _filtroLista: string = '';
+  fileNameToUpdate: string = '';
+  dataAtual: string = '';
 
   get filtroLista(): string {
     return this._filtroLista;
@@ -65,10 +68,13 @@ export class EventosComponent implements OnInit {
   }
 
   getEventos() {
+
     this.eventoService.getAllEvento().subscribe(
       (_eventos) => {
         this.eventos = _eventos;
         this.eventosFiltrados = this.eventos;
+
+        this.dataAtual = new Date().getMilliseconds().toString();
       },
       error => {
         this.toastr.error(`Ocorreu erro ao tentar carregar os registros: (${error})`);
@@ -110,8 +116,10 @@ export class EventosComponent implements OnInit {
   editarEvento(evento: Evento, template: any){
     this.modeloSalvar = 'put';
     this.openModal(template);
-    this.evento = evento;
-    this.registerForm.patchValue(evento);
+    this.evento = Object.assign({},evento);
+    this.fileNameToUpdate = evento.imagemURL.toString();
+    this.evento.imagemURL = '';
+    this.registerForm.patchValue(this.evento);
   }
 
   novoEvento(template: any){
@@ -138,35 +146,70 @@ export class EventosComponent implements OnInit {
     );
   }
 
+  onFileChange(event: any){
+    const reader = new FileReader();
+    if (event.target.files && event.target.files.length){
+      this.file = event.target.files;
+      console.log(this.file);
+    }
+  }
+
+  uploadImagem() {
+
+    if(this.modeloSalvar === 'post'){
+      const nomeArquivo = this.evento.imagemURL.split('\\',3);
+      this.evento.imagemURL = nomeArquivo[2];
+
+      this.eventoService.postUpload(this.file, nomeArquivo[2])
+      .subscribe(
+        () =>{
+          this.getEventos();
+        }
+      );
+    }else{
+      this.evento.imagemURL = this.fileNameToUpdate;
+      this.eventoService.postUpload(this.file, this.fileNameToUpdate)
+      .subscribe(
+        () =>{
+          this.getEventos();
+        }
+      );
+    }
+  }
+
   salvarAlteracao(template: any) {
     if(this.registerForm.valid){
       if(this.modeloSalvar === 'post'){
-      this.evento = Object.assign({}, this.registerForm.value);
-      this.eventoService.postEvento(this.evento).subscribe(
-        (_novoEvento: Evento) => {
-          console.log(_novoEvento);
-          template.hide();
-          this.getEventos();
-          this.toastr.success('Registro gravado com sucesso!');
-        }, error => {
-          this.toastr.error(`Ocorreu erro ao tentar gravar o registro: (${error})`);
+        this.evento = Object.assign({}, this.registerForm.value);
 
-        }
+        this.uploadImagem();
+
+        this.eventoService.postEvento(this.evento).subscribe(
+          (_novoEvento: Evento) => {
+            console.log(_novoEvento);
+            template.hide();
+            this.getEventos();
+            this.toastr.success('Registro gravado com sucesso!');
+          }, error => {
+            this.toastr.error(`Ocorreu erro ao tentar gravar o registro: (${error})`);
+
+          }
 
         );
       }else{
         this.evento = Object.assign({id: this.evento.id}, this.registerForm.value);
-      this.eventoService.putEvento(this.evento).subscribe(
-        (_editarEvento: Evento) => {
-          console.log(_editarEvento);
-          template.hide();
-          this.getEventos();
-          this.toastr.success('Registro alterado com sucesso!');
-        }, error => {
-          this.toastr.error(`Ocorreu erro ao tentar editar o registro: (${error})`);
-        }
+        this.uploadImagem();
+        this.eventoService.putEvento(this.evento).subscribe(
+          (_editarEvento: Evento) => {
+            console.log(_editarEvento);
+            template.hide();
+            this.getEventos();
+            this.toastr.success('Registro alterado com sucesso!');
+          }, error => {
+            this.toastr.error(`Ocorreu erro ao tentar editar o registro: (${error})`);
+          }
 
-        );
+          );
       }
     }
 

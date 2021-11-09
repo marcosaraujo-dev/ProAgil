@@ -1,3 +1,5 @@
+using System.Net.Http.Headers;
+using System.IO;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -38,6 +40,43 @@ namespace ProAgil.WebAPI.Controllers
             {
                 return this.StatusCode(StatusCodes.Status500InternalServerError, $"Ocorreu problemas na comunicação com o Banco de dados.({ex.Message})");
             }
+
+        }
+
+        [HttpPost("upload")]
+        public async Task<IActionResult> upload()
+        {
+            try
+            {
+                if(Request.Form.Files.Count > 0){
+                var file = Request.Form.Files[0];
+                var folderName = Path.Combine("Resources", "Images");
+                var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
+
+                if (file.Length > 0)
+                {
+                    var filename = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName;
+                    var fullPath = Path.Combine(pathToSave, filename.Replace("\"", " ").Trim());
+
+                    using (var stream = new FileStream(fullPath, FileMode.Create))
+                    {
+                        file.CopyTo(stream);
+                    }
+                }
+                    return Ok();
+                }
+                else{
+                    return BadRequest("Não foi localizado arquivo para upload");
+                }
+
+                
+            }
+            catch (Exception ex)
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError, $"Ocorreu problemas na comunicação para gravar o arquivo.({ex.Message})");
+            }
+
+            return BadRequest("Erro ao tentar realziar o upload");
 
         }
 

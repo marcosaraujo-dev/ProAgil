@@ -35,7 +35,7 @@
   <tbody>
     <tr *ngFor="let evento of eventosFiltrados">
       <td>
-        <img *ngIf="mostrarImagem" alt="" src="http://localhost:5000/img/{{ evento.imagemURL }}"
+        <img *ngIf="mostrarImagem" alt="" src="http://localhost:5000/Resources/Images/{{ evento.imagemURL }}?ts={{dataAtual}}"
           [style.width.px]="imagemLargura" [style.margin.px]="imagemMargem" />
       </td>
       <td>{{ evento.id }}</td>
@@ -165,12 +165,17 @@
             </div>
             <div class="form-group col-md-9">
               <label>Imagem</label>
+              <div>
+                <button class="btn btn-success" (click)="file.click()">Imagem</button>
+                <input type="file" #file [ngClass]="{
+                    'is-invalid':
+                      registerForm.get('imagemURL').errors &&
+                      registerForm.get('imagemURL').touched
+                  }" (change)="onFileChange($event)"
+                  class="form-control is-invalid" formControlName="imagemURL" placeholder="" style="display: none;" />
 
-              <input type="text" [ngClass]="{
-                  'is-invalid':
-                    registerForm.get('imagemURL').errors &&
-                    registerForm.get('imagemURL').touched
-                }" class="form-control is-invalid" formControlName="imagemURL" placeholder="" />
+              </div>
+
               <div *ngIf="
                   registerForm.get('imagemURL').hasError('required') &&
                   registerForm.get('imagemURL').touched

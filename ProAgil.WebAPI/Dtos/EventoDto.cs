@@ -20,7 +20,6 @@ namespace ProAgil.WebAPI.Dtos
         
         public string ImagemURL { get; set; } 
         
-        [Phone]
         public string Telefone { get; set; }
         
         [EmailAddress]

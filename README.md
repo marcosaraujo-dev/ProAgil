@@ -7,12 +7,12 @@
 ![image](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 
 
-Branch : 06-DevFrontEndCriacaoRotasAlertas
+Branch : 07-DevUploadImagens
 ### Foram realizadas as seguintes atividades:
 
-- [x] Utilização do pacote ngx Toastr 
-- [x] Criação de Alertas
-- [x] Configuração e criação de rotas
-- [x] Configuração do título dinâmico
-- [x] Ajuste na leitura do campo data do evento
+- [x] (BackEnd) Alteração controller WebApi para receber e gravar uma imagem 
+- [x] (FrontEnd) Criação botão de Upload
+- [x] (FrontEnd) Usando Event Target File
+- [x] (FrontEnd) Enviando File de upload para API
+- [x] (FrontEnd) Recarregar grid alterado de imagem
 
