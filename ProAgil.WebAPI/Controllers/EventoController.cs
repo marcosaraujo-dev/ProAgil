@@ -76,7 +76,7 @@ namespace ProAgil.WebAPI.Controllers
                 return this.StatusCode(StatusCodes.Status500InternalServerError, $"Ocorreu problemas na comunicação para gravar o arquivo.({ex.Message})");
             }
 
-            return BadRequest("Erro ao tentar realziar o upload");
+            return BadRequest("Erro ao tentar realizar o upload");
 
         }
 

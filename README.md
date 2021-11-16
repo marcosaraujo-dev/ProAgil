@@ -7,12 +7,18 @@
 ![image](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 
 
-Branch : 07-DevUploadImagens
+Branch : 08-DevBackEndTokenJWT
 ### Foram realizadas as seguintes atividades:
 
-- [x] (BackEnd) Alteração controller WebApi para receber e gravar uma imagem 
-- [x] (FrontEnd) Criação botão de Upload
-- [x] (FrontEnd) Usando Event Target File
-- [x] (FrontEnd) Enviando File de upload para API
-- [x] (FrontEnd) Recarregar grid alterado de imagem
+- [x] (BackEnd) Criação de entidades para cadastro e controle de usuários
+- [x] (BackEnd) Configurando a utilização do entity
+- [x] (BackEnd) gerando novo modelo de banco de dados
+- [x] (BackEnd) Configuração startup para utilização de autenticação
+- [x] (BackEnd) Configurando JWT
+- [x] (BackEnd) Configurando ControllerUser e UserDto.
+- [x] (BackEnd) Criando metodo de Login 
+- [x] (BackEnd) Geração de token
+- [x] (BackEnd) Método para criar usuário
+
+
 
