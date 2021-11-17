@@ -75,23 +75,28 @@ namespace ProAgil.WebAPI.Controllers
             {
                 // verifica se encontra um usuário com o userName
                 var user =  await _userManager.FindByNameAsync(userLogin.UserName);
-                // Checa se a senha do usuário encontrado é a mesma recebida pela API 
-                var result =  await _signInManager.CheckPasswordSignInAsync(user,userLogin.Password, false);
                 
+                if(user != null)
+                {
+                    // Checa se a senha do usuário encontrado é a mesma recebida pela API 
+                    var result =  await _signInManager.CheckPasswordSignInAsync(user,userLogin.Password, false);
+                    
 
-                if(result.Succeeded)
-                {   
-                    var AppUser = await _userManager.Users
-                        .FirstOrDefaultAsync(u => u.NormalizedUserName == userLogin.UserName.ToUpper());
+                    if(result.Succeeded)
+                    {   
+                        var AppUser = await _userManager.Users
+                            .FirstOrDefaultAsync(u => u.NormalizedUserName == userLogin.UserName.ToUpper());
 
-                    var userToReturn = _mapper.Map<UserLoginDto>(AppUser);
-                    // controle para gerar o token de autenticação do usuário encontrado
-                    return Ok(new {
-                        token = GenerateJWToken(AppUser).Result,
-                        user = userToReturn
-                    });
+                        var userToReturn = _mapper.Map<UserLoginDto>(AppUser);
+                        // controle para gerar o token de autenticação do usuário encontrado
+                        return Ok(new {
+                            token = GenerateJWToken(AppUser).Result,
+                            user = userToReturn
+                        });
+                    }
+                    
                 }
-                return Unauthorized();
+                return Unauthorized("Login ou senha inválida");
             }
             catch (System.Exception ex)
             {

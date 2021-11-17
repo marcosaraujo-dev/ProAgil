@@ -7,18 +7,17 @@
 ![image](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 
 
-Branch : 08-DevBackEndTokenJWT
+Branch : 09-FrontEndLoginAutenticacaoCadastroUsuario
 ### Foram realizadas as seguintes atividades:
 
-- [x] (BackEnd) Criação de entidades para cadastro e controle de usuários
-- [x] (BackEnd) Configurando a utilização do entity
-- [x] (BackEnd) gerando novo modelo de banco de dados
-- [x] (BackEnd) Configuração startup para utilização de autenticação
-- [x] (BackEnd) Configurando JWT
-- [x] (BackEnd) Configurando ControllerUser e UserDto.
-- [x] (BackEnd) Criando metodo de Login 
-- [x] (BackEnd) Geração de token
-- [x] (BackEnd) Método para criar usuário
+- [x] (FrontEnd) Criação da tela de login e seus controles
+- [x] (FrontEnd) Criação da tela de cadastrar usuários e seus controles
+- [x] (FrontEnd) Alteração e controles na barra de navegação após o login
+- [x] (FrontEnd) Criação dos controles de auth.service
+- [x] (FrontEnd) Autenticação do Header JWT
+- [x] (FrontEnd) Criação controle Angular Guard
+- [x] (FrontEnd) Criação do controle de interceptor 
+- [x] (BackEnd) Controle para validação do username não encontrado. 
 
 
 
