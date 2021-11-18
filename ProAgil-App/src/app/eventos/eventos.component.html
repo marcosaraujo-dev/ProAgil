@@ -29,7 +29,7 @@
       <th>Data</th>
       <th>Qtde Pessoas</th>
       <th>Lote</th>
-      <th>Opções</th>
+      <th colspan="2">Opções</th>
     </tr>
   </thead>
   <tbody>
@@ -59,6 +59,11 @@
             <i class="fa fa-eraser" aria-hidden="true"></i>
           </button>
         </div>
+      </td>
+      <td>
+        <a [routerLink]="['/evento', evento.id,'edit']" tooltip="Edição Detalhada" class="btn btn-sm btn-warning">
+          <i class="fa fa-edit" aria-hidden="true"></i>
+        </a>
       </td>
     </tr>
   </tbody>

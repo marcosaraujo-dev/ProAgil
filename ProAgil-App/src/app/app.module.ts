@@ -9,6 +9,9 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { TabsModule } from 'ngx-bootstrap/tabs';
+import { NgxMaskModule } from 'ngx-mask';
+import { NgxCurrencyModule } from "ngx-currency";
 
 import { ToastrModule } from 'ngx-toastr';
 
@@ -27,6 +30,7 @@ import { UserComponent } from './user/user.component';
 import { LoginComponent } from './user/login/login.component';
 import { RegistrationComponent } from './user/registration/registration.component';
 import { AuthInterceptor } from './auth/auth.interceptor';
+import { EventoEditComponent } from './eventos/eventoEdit/eventoEdit.component';
 
 
 @NgModule({
@@ -34,6 +38,7 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     AppComponent,
     NavComponent,
     EventosComponent,
+    EventoEditComponent,
     PalestrantesComponent,
     DashboardsComponent,
     ContatosComponent,
@@ -42,7 +47,8 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     LoginComponent,
     RegistrationComponent,
 
-    DateTimeFormatPipe
+    DateTimeFormatPipe,
+
    ],
   imports: [
     BrowserModule,
@@ -52,12 +58,15 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
+    TabsModule.forRoot(),
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(
       {
       timeOut: 3000,
       preventDuplicates: true,
     }),
+    NgxMaskModule.forRoot(),
+    NgxCurrencyModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,

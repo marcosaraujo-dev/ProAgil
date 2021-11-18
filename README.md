@@ -7,17 +7,14 @@
 ![image](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 
 
-Branch : 09-FrontEndLoginAutenticacaoCadastroUsuario
+Branch : 10-LotesRedeSociaisEventos
 ### Foram realizadas as seguintes atividades:
 
-- [x] (FrontEnd) Criação da tela de login e seus controles
-- [x] (FrontEnd) Criação da tela de cadastrar usuários e seus controles
-- [x] (FrontEnd) Alteração e controles na barra de navegação após o login
-- [x] (FrontEnd) Criação dos controles de auth.service
-- [x] (FrontEnd) Autenticação do Header JWT
-- [x] (FrontEnd) Criação controle Angular Guard
-- [x] (FrontEnd) Criação do controle de interceptor 
-- [x] (BackEnd) Controle para validação do username não encontrado. 
+- [x] (FrontEnd) Criação da visualização dos lotes
+- [x] (FrontEnd) Criação da visualização das redes sociais
+- [x] (FrontEnd) Salvando todos os dados
+- [x] (FrontEnd) Utilização da mascara nos campos
+- [x] (BackEnd) Remoção dos lotes e redes Sociais que não foram passados na alteração
 
 
 
