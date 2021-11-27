@@ -12,7 +12,7 @@
 
 <!-- TABLE OF CONTENTS -->
 <details>
-  <summary>Table of Contents</summary>
+  <summary>Conteúdo</summary>
   <ol>
     <li>
       <a href="#Sobre-o-projeto">Sobre o Projeto</a>
@@ -154,7 +154,7 @@ Branch : 10-LotesRedeSociaisEventos
 <!-- CONTACT -->
 ## Contatos
 
-Marcos Araujo - [@linkedin_handle](https://www.linkedin.com/in/marcosaraujosouza/) - marcos.araso@hotmail.com
+Marcos Araujo - [@linkedin](https://www.linkedin.com/in/marcosaraujosouza/) - marcos.araso@hotmail.com
 
 Project Link: [https://github.com/marcosaraujo-dev/ProAgil](https://github.com/marcosaraujo-dev/ProAgil)
 
